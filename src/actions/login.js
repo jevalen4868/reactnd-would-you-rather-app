@@ -5,7 +5,7 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 export const handleLoginData = () => (dispatch) => {
   dispatch(showLoading())
   return getUsers()
-    .then(( users ) => {
+    .then((users) => {
       dispatch(receiveUsers(users))
       dispatch(hideLoading())
     })

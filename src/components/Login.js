@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { setAuthedUser } from "../actions/authedUser";
+import { handleInitialData } from "../actions/shared";
 
 class Login extends Component {
 
@@ -9,7 +9,7 @@ class Login extends Component {
     const { dispatch } = this.props
     const id = e.target.value
     if (id !== '') {
-      dispatch(setAuthedUser(id))
+      dispatch(handleInitialData(id))
     } else {
       // Do nothin'
       console.log('User selected empty user... doh.')
@@ -19,19 +19,22 @@ class Login extends Component {
   render() {
     const { userIds, loading } = this.props
     return (
-      <div>
+      <Fragment>
         {
           !loading &&
-          <select onChange={this.handleChange}>
-            <option value=''/>
-            {
-              userIds.map((userId) => (
-                <option key={userId}>{userId}</option>
-              ))
-            }
-          </select>
+          <div>
+            <h3>Login, s'il vous plait.</h3>
+            <select onChange={this.handleChange}>
+              <option value=''/>
+              {
+                userIds.map((userId) => (
+                  <option key={userId}>{userId}</option>
+                ))
+              }
+            </select>
+          </div>
         }
-      </div>
+      </Fragment>
     )
   }
 }
