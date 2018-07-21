@@ -12,9 +12,8 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = ({ questions }) => ({
-  questionIds: null
-  /*Object.keys(questions)
-    .sort((a, b) => questions[b].timestamp - questions[a].timestamp)*/
+  questionIds: Object.keys(questions)
+    .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
 })
 
 export default connect(mapStateToProps)(Dashboard)

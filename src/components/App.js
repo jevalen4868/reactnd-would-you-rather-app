@@ -10,6 +10,7 @@ import Dashboard from './Dashboard'
 import LoadingBar from 'react-redux-loading'
 
 import './App.css';
+import Question from "./Question";
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
   }
 
   render() {
-    const { authenticated, loading } = this.props
+    const { authenticated } = this.props
 
     return (
       <Router>
@@ -32,7 +33,9 @@ class App extends Component {
               <Login/>
               :
               <div>
-                <Dashboard/>
+                <Question
+                  id='6ni6ok3ym7mf1p33lnez'
+                />
               </div>
             }
           </div>
@@ -42,7 +45,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, questions }) => ({
+const mapStateToProps = ({ authedUser }) => ({
   authenticated: authedUser !== null,
 })
 
