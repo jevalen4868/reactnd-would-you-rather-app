@@ -20,23 +20,10 @@ import { connect } from 'react-redux'
 /*
 Controlled component, to manage the radio button selected.
  */
-class Question extends Component {
+class QuestionSummary extends Component {
 
-  state = {
-    choice: ''
-  }
-
-  handleClick = (e) => {
-    let choice = e.target.value
-    this.setState(() => ({
-      choice,
-    }))
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const { choice } = this.state
-    console.log(choice)
+  buttonClick = (e) => {
+    e.preventDefault()
   }
 
   render() {
@@ -57,29 +44,19 @@ class Question extends Component {
         </div>
 
         <div className='question-info'>
-          <h4 className='question-text'>
+          <h4>
             Would you rather....
           </h4>
 
-          <form id='question-form' onSubmit={this.handleSubmit}>
-            <input
-              type='radio'
-              name='options'
-              value='optionOne'
-              onClick={this.handleClick}
-            />
+          <p>
             {question.optionOne.text}
-            <br/>
-            <input
-              type='radio'
-              name="options"
-              value='optionTwo'
-              onClick={this.handleClick}
-            />
+          </p>
+
+          <p>
             {question.optionTwo.text}
-            <br/>
-            <button>Submit</button>
-          </form>
+          </p>
+
+          <button onClick={this.buttonClick}>View Question</button>
         </div>
       </div>
     )
@@ -99,4 +76,4 @@ const mapStateToProps = ({ authedUser, users, questions }, { id, answered }) => 
   }
 }
 
-export default connect(mapStateToProps)(Question)
+export default connect(mapStateToProps)(QuestionSummary)

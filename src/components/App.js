@@ -9,8 +9,11 @@ import Login from './Login'
 import Dashboard from './Dashboard'
 import LoadingBar from 'react-redux-loading'
 
-import './App.css';
 import Question from "./Question";
+import QuestionSummary from "./QuestionSummary";
+import QuestionDetail from "./QuestionDetail";
+import Leaderboard from "./Leaderboard";
+import NewQuestion from "./NewQuestion";
 
 class App extends Component {
 
@@ -33,8 +36,7 @@ class App extends Component {
               <Login/>
               :
               <div>
-                <Question
-                  id='6ni6ok3ym7mf1p33lnez'
+                <NewQuestion
                 />
               </div>
             }

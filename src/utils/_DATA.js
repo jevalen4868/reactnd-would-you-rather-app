@@ -1,8 +1,12 @@
+import johndoe from '../images/johndoe.jpg'
+import sarahedo from '../images/sarahedo.jpg'
+import tyler from '../images/tylermcginnis.png'
+
 let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://pixabay.com/get/ea34b10728f31c22d2524518a33219c8b66ae3d01ab3134195f0c47a/user-310807_1280.png',
+    avatarURL: sarahedo,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -14,7 +18,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://pixabay.com/get/e830b70a20f01c22d2524518a33219c8b66ae3d01ab3134195f0c07d/man-156584_1280.png',
+    avatarURL: tyler,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +28,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://pixabay.com/get/ea34b10729fd1c22d2524518a33219c8b66ae3d01ab3134195f0c878/businessman-310819_1280.png',
+    avatarURL: johndoe,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

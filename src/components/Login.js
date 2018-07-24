@@ -22,7 +22,7 @@ class Login extends Component {
       <Fragment>
         {
           !loading &&
-          <div>
+          <div className='center'>
             <h3>Login, s'il vous plait.</h3>
             <select onChange={this.handleChange}>
               <option value=''/>
