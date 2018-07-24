@@ -63,7 +63,7 @@ class QuestionSummary extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, users, questions }, { id, answered }) => {
+const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
   const question = questions[id]
   const askedByUser = users[question.author]
   return {
@@ -72,7 +72,6 @@ const mapStateToProps = ({ authedUser, users, questions }, { id, answered }) => 
     question: question
       ? question
       : null,
-    answered,
   }
 }
 

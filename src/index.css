@@ -52,6 +52,25 @@ li {
   margin: 0 auto;
 }
 
+.dashboard {
+  width: 100%;
+  max-width: 590px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 5px;
+}
+
+.active-question-container {
+  margin: 0px auto 0px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
 .user {
   width: 100%;
   max-width: 500px;
@@ -98,9 +117,11 @@ li {
 .question {
   width: 100%;
   max-width: 590px;
-  padding: 10px;
   display: flex;
-  margin: 0 auto;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0;
   border: 1px solid #dad7d7;
   border-radius: 5px;
 }

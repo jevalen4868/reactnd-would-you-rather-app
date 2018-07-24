@@ -36,7 +36,7 @@ class App extends Component {
               <Login/>
               :
               <div>
-                <NewQuestion
+                <Dashboard
                 />
               </div>
             }
