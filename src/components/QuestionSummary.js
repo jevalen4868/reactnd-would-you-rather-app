@@ -31,10 +31,11 @@ class QuestionSummary extends Component {
     return (
       <div className='question'>
         <div className='question-user-info'>
-          <h3>
+          <h4>
             {question.author === authedUser
               ? 'You ask'
-              : `${askedByUser.name} asks`}</h3>
+              : `${askedByUser.name} asks`}
+          </h4>
 
           <img
             src={askedByUser.avatarURL}

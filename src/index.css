@@ -55,7 +55,7 @@ li {
 .dashboard {
   width: 100%;
   max-width: 590px;
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -64,11 +64,29 @@ li {
 }
 
 .active-question-container {
-  margin: 0px auto 0px auto;
+  margin: 0px 0px 0px 0px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  text-decoration: none;
+}
+
+.inactive-question {
+  width: 50%;
+  border-radius: 0px 0px 10px 10px;
+  background: #00b5d6;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.active-question {
+  width: 50%;
+  border-radius: 0px 0px 10px 10px;
+  background: #00b5d6;
+  color: lightgray;
+  text-align: center;
+  border: 1px solid;
 }
 
 .user {
