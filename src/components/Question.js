@@ -62,23 +62,27 @@ class Question extends Component {
           </h4>
 
           <form id='question-form' onSubmit={this.handleSubmit}>
-            <input
-              type='radio'
-              name='options'
-              value='optionOne'
-              onClick={this.handleClick}
-            />
-            {question.optionOne.text}
-            <br/>
-            <input
-              type='radio'
-              name="options"
-              value='optionTwo'
-              onClick={this.handleClick}
-            />
-            {question.optionTwo.text}
-            <br/>
-            <button>Submit</button>
+            <ul>
+              <li>
+                <input
+                  type='radio'
+                  name='options'
+                  value='optionOne'
+                  onClick={this.handleClick}
+                />
+                {question.optionOne.text}
+              </li>
+              <li>
+                <input
+                  type='radio'
+                  name="options"
+                  value='optionTwo'
+                  onClick={this.handleClick}
+                />
+                {question.optionTwo.text}
+              </li>
+            </ul>
+            <button className='btn'>Submit</button>
           </form>
         </div>
       </div>
@@ -86,7 +90,7 @@ class Question extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, users, questions }, { id, answered }) => {
+const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
   const question = questions[id]
   const askedByUser = users[question.author]
   return {
@@ -95,7 +99,6 @@ const mapStateToProps = ({ authedUser, users, questions }, { id, answered }) => 
     question: question
       ? question
       : null,
-    answered,
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import QuestionSummary from "./QuestionSummary";
@@ -27,8 +27,8 @@ class Dashboard extends Component {
       const currentQuestion = questions[id]
       const answeredByUser = currentQuestion.optionOne.votes.includes(authedUser)
         || currentQuestion.optionTwo.votes.includes(authedUser)
-      // if the current state is unanswered, then I only want questionIds
-      // where the answeredByUser value is false.
+      // if the current state is answered, then I only want questionIds
+      // where the answeredByUser value is true.
       if (activeQuestion === 'answered' && answeredByUser) {
         return true
       }
@@ -43,10 +43,12 @@ class Dashboard extends Component {
     })
 
     return (
-      <div className='dashboard'>
+      <Fragment>
+        <h3 className='center'>Would you rather?</h3>
+        <div className='dashboard'>
         <ul className='active-question-container'>
           {
-            activeQuestion === 'unanswered'
+            activeQuestion === 'answered'
               ? <li
                 className='inactive-question'
                 onClick={this.toggleQuestion}
@@ -54,7 +56,7 @@ class Dashboard extends Component {
               : <li className='active-question'>Unanswered</li>
           }
           {
-            activeQuestion === 'answered'
+            activeQuestion === 'unanswered'
               ? <li
                 className='inactive-question'
                 onClick={this.toggleQuestion}
@@ -73,6 +75,7 @@ class Dashboard extends Component {
           }
         </ul>
       </div>
+      </Fragment>
     )
   }
 }

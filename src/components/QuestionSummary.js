@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from "react-router-dom";
 
 /*
  "8xf0y6ziyjabvozdd253nd": {
@@ -22,12 +23,17 @@ Controlled component, to manage the radio button selected.
  */
 class QuestionSummary extends Component {
 
-  buttonClick = (e) => {
+  buttonClick = (e, id) => {
+    const { history } = this.props
     e.preventDefault()
+    history.push(`/question/${id}`)
   }
 
   render() {
     const { question, authedUser, askedByUser } = this.props
+    if(question === null ) {
+      return <p>Question does not exist!</p>
+    }
     return (
       <div className='question'>
         <div className='question-user-info'>
@@ -57,7 +63,11 @@ class QuestionSummary extends Component {
             {question.optionTwo.text}
           </p>
 
-          <button onClick={this.buttonClick}>View Question</button>
+          <button
+            className='btn'
+            onClick={(e) => this.buttonClick(e, question.id)}>
+            View Question
+          </button>
         </div>
       </div>
     )
@@ -76,4 +86,4 @@ const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
   }
 }
 
-export default connect(mapStateToProps)(QuestionSummary)
+export default withRouter(connect(mapStateToProps)(QuestionSummary))

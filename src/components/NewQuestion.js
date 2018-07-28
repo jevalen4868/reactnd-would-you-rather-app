@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 
 /*
@@ -13,7 +13,7 @@ class NewQuestion extends Component {
 
   handleChange = (e) => {
     const { name, value } = e.target
-
+    console.log(name, value)
     this.setState((prevState) => ({
       [name]: value,
     }))
@@ -28,35 +28,38 @@ class NewQuestion extends Component {
   render() {
     const { optionOne, optionTwo } = this.state
     return (
-      <div className='new-question'>
-        <form id='new-question-form' onSubmit={this.handleSubmit}>
-          <h3 className='center'>New Question</h3>
-          <input
-            name='optionOne'
-            placeholder='Option One'
-            value={optionOne}
-            onChange={this.handleChange}
-            className='option'
-            maxLength={280}
-          />
-          <p>OR</p>
-          <input
-            name='optionTwo'
-            placeholder='Option Two'
-            value={optionTwo}
-            onChange={this.handleChange}
-            className='option'
-            maxLength={280}
-          />
-          <button
-            className='btn'
-            type='submit'
-            disabled={optionOne === '' || optionTwo === ''}
-          >
-            Submit
-          </button>
-        </form>
-      </div>
+      <Fragment>
+        <h3 className='center'>New Question</h3>
+        <div className='new-question'>
+          <h3 className='center'>Would you rather...</h3>
+          <form id='new-question-form' onSubmit={this.handleSubmit}>
+            <input
+              name='optionOne'
+              placeholder='Option One'
+              value={optionOne}
+              onChange={this.handleChange}
+              className='option'
+              maxLength={280}
+            />
+            <p>OR</p>
+            <input
+              name='optionTwo'
+              placeholder='Option Two'
+              value={optionTwo}
+              onChange={this.handleChange}
+              className='option'
+              maxLength={280}
+            />
+            <button
+              className='btn'
+              type='submit'
+              disabled={optionOne === '' || optionTwo === ''}
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </Fragment>
     )
   }
 }

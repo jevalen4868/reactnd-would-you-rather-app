@@ -10,6 +10,24 @@ a {
   color: #252525;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  background: #00b5d6;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 5px auto;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  font-size: 12px;
+  width: 250px;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -127,19 +145,27 @@ li {
   max-width: 590px;
   padding: 10px;
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
   border: 1px solid #dad7d7;
   border-radius: 5px;
+}
+
+.new-question input {
+  border-radius: 4px;
+  border: 1px solid #dad7d7;
+  padding: 10px;
+  font-size: 15px;
+  height: 25px;
+  width: 95%;
+  margin-right: 25px;
 }
 
 .question {
   width: 100%;
   max-width: 590px;
   display: flex;
-  margin-top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 0;
+  margin: 0 auto;
   border: 1px solid #dad7d7;
   border-radius: 5px;
 }
@@ -160,6 +186,7 @@ li {
   margin: 10px;
   display: flex;
   flex-direction: column;
+  border-right: 3px solid #dad7d7;
 }
 
 .question-info {
