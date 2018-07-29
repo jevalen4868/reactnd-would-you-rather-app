@@ -7,9 +7,9 @@ johndoe: {
     name: 'John Doe',
     avatarURL: 'https://tylermcginnis.com/would-you-rather/dan.jpg',
     answers: {
-      "xj352vofupe1dqz9emx13r": 'optionOne',
-      "vthrdm985a262al8qx3do": 'optionTwo',
-      "6ni6ok3ym7mf1p33lnez": 'optionOne'
+      "xj352vofupe1dqz9emx13r": 'optionOneText',
+      "vthrdm985a262al8qx3do": 'optionTwoText',
+      "6ni6ok3ym7mf1p33lnez": 'optionOneText'
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
   }

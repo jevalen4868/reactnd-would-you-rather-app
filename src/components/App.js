@@ -10,8 +10,8 @@ import Dashboard from './Dashboard'
 import LoadingBar from 'react-redux-loading'
 import Leaderboard from "./Leaderboard";
 import NewQuestion from "./NewQuestion";
-import User from "./User";
 import QuestionPage from "./QuestionPage";
+import UserPage from "./UserPage";
 
 class App extends Component {
 
@@ -38,9 +38,7 @@ class App extends Component {
                 <Route path='/question/:id' component={QuestionPage}/>
                 <Route path='/new' component={NewQuestion}/>
                 <Route path='/leaderboard' component={Leaderboard}/>
-                <Route path='/user' render={() => (
-                  <User id={authedUser}/>)
-                }/>
+                <Route path='/user' component={UserPage}/>
               </div>
             }
           </div>

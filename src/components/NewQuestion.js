@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { handleSaveQuestion } from "../actions/questions";
+import { Redirect } from "react-router-dom";
 
 /*
 Controlled component.
@@ -7,13 +9,12 @@ Controlled component.
 class NewQuestion extends Component {
 
   state = {
-    optionOne: '',
-    optionTwo: '',
+    optionOneText: '',
+    optionTwoText: '',
   }
 
   handleChange = (e) => {
     const { name, value } = e.target
-    console.log(name, value)
     this.setState((prevState) => ({
       [name]: value,
     }))
@@ -21,12 +22,19 @@ class NewQuestion extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const { optionOne, optionTwo } = this.state
-    console.log('submitted!', optionOne, optionTwo)
+    const { dispatch } = this.props
+    const { optionOneText, optionTwoText } = this.state
+    dispatch(handleSaveQuestion(optionOneText, optionTwoText))
+
+    // Think we can assume we didn't error out if we get here.
+    this.setState(() => ({
+      optionOneText: '',
+      optionTwoText: '',
+    }))
   }
 
   render() {
-    const { optionOne, optionTwo } = this.state
+    const { optionOneText, optionTwoText, redirectHome } = this.state
     return (
       <Fragment>
         <h3 className='center'>New Question</h3>
@@ -34,18 +42,18 @@ class NewQuestion extends Component {
           <h3 className='center'>Would you rather...</h3>
           <form id='new-question-form' onSubmit={this.handleSubmit}>
             <input
-              name='optionOne'
+              name='optionOneText'
               placeholder='Option One'
-              value={optionOne}
+              value={optionOneText}
               onChange={this.handleChange}
               className='option'
               maxLength={280}
             />
             <p>OR</p>
             <input
-              name='optionTwo'
+              name='optionTwoText'
               placeholder='Option Two'
-              value={optionTwo}
+              value={optionTwoText}
               onChange={this.handleChange}
               className='option'
               maxLength={280}
@@ -53,7 +61,7 @@ class NewQuestion extends Component {
             <button
               className='btn'
               type='submit'
-              disabled={optionOne === '' || optionTwo === ''}
+              disabled={optionOneText === '' || optionTwoText === ''}
             >
               Submit
             </button>

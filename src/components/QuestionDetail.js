@@ -8,12 +8,12 @@ class QuestionDetail extends Component {
 
   render() {
     const { question, authedUser, askedByUser, numUsers } = this.props
-    const questionOnePercentile = question.optionOne.votes.length > 0
-      ? (question.optionOne.votes.length / numUsers * 100).toFixed(0)
+    const questionOnePercentile = question.optionOneText.votes.length > 0
+      ? (question.optionOneText.votes.length / numUsers * 100).toFixed(0)
       : 0
     const questionOnePercentileStyle = { width: `${questionOnePercentile}%` };
-    const questionTwoPercentile = question.optionTwo.votes.length > 0
-      ? (question.optionTwo.votes.length / numUsers * 100).toFixed(0)
+    const questionTwoPercentile = question.optionTwoText.votes.length > 0
+      ? (question.optionTwoText.votes.length / numUsers * 100).toFixed(0)
       : 0
     const questionTwoPercentileStyle = { width: `${questionTwoPercentile}%` };
 
@@ -39,7 +39,7 @@ class QuestionDetail extends Component {
 
           <div className='question-option'>
             {
-              question.optionOne.votes.includes(authedUser) &&
+              question.optionOneText.votes.includes(authedUser) &&
               <span className='question-voted-user'>
                You voted.
               </span>
@@ -47,7 +47,7 @@ class QuestionDetail extends Component {
 
             <div>
               <p className='question-option-text'>
-                {question.optionOne.text}
+                {question.optionOneText.text}
               </p>
             </div>
 
@@ -63,7 +63,7 @@ class QuestionDetail extends Component {
             </div>
 
             <span className='question-total-votes'>
-              {`${question.optionOne.votes.length} out of ${numUsers} votes.`}
+              {`${question.optionOneText.votes.length} out of ${numUsers} votes.`}
             </span>
 
           </div>
@@ -72,7 +72,7 @@ class QuestionDetail extends Component {
 
           <div className='question-option'>
             {
-              question.optionTwo.votes.includes(authedUser) &&
+              question.optionTwoText.votes.includes(authedUser) &&
               <span className='question-voted-user'>
                You voted.
               </span>
@@ -80,7 +80,7 @@ class QuestionDetail extends Component {
 
             <div>
               <p className='question-option-text'>
-                {question.optionTwo.text}
+                {question.optionTwoText.text}
               </p>
             </div>
 
@@ -96,7 +96,7 @@ class QuestionDetail extends Component {
             </div>
 
             <span className='question-total-votes'>
-              {`${question.optionTwo.votes.length} out of ${numUsers} votes.`}
+              {`${question.optionTwoText.votes.length} out of ${numUsers} votes.`}
             </span>
 
           </div>

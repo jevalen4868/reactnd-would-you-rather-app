@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { saveUserQuestionAnswer } from "../actions/shared";
+import { Redirect } from "react-router-dom";
 
 /*
  "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
     author: 'sarahedo',
     timestamp: 1467166872634,
-    optionOne: {
+    optionOneText: {
       votes: ['sarahedo'],
       text: 'have horrible short term memory',
     },
-    optionTwo: {
+    optionTwoText: {
       votes: [],
       text: 'have horrible long term memory'
     }
@@ -23,20 +25,24 @@ Controlled component, to manage the radio button selected.
 class Question extends Component {
 
   state = {
-    choice: ''
+    answer: ''
   }
 
   handleClick = (e) => {
-    let choice = e.target.value
+    let answer = e.target.value
     this.setState(() => ({
-      choice,
+      answer,
     }))
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { choice } = this.state
-    console.log(choice)
+    const { dispatch, authedUser, qid } = this.props
+    const { answer } = this.state
+    dispatch(saveUserQuestionAnswer({ authedUser, qid, answer }))
+    this.setState(() => ({
+      answer: '',
+    }))
   }
 
   render() {
@@ -67,19 +73,19 @@ class Question extends Component {
                 <input
                   type='radio'
                   name='options'
-                  value='optionOne'
+                  value='optionOneText'
                   onClick={this.handleClick}
                 />
-                {question.optionOne.text}
+                {question.optionOneText.text}
               </li>
               <li>
                 <input
                   type='radio'
                   name="options"
-                  value='optionTwo'
+                  value='optionTwoText'
                   onClick={this.handleClick}
                 />
-                {question.optionTwo.text}
+                {question.optionTwoText.text}
               </li>
             </ul>
             <button className='btn'>Submit</button>
@@ -90,8 +96,8 @@ class Question extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
-  const question = questions[id]
+const mapStateToProps = ({ authedUser, users, questions }, { qid }) => {
+  const question = questions[qid]
   const askedByUser = users[question.author]
   return {
     authedUser,

@@ -7,11 +7,11 @@ import { withRouter } from "react-router-dom";
     id: '8xf0y6ziyjabvozdd253nd',
     author: 'sarahedo',
     timestamp: 1467166872634,
-    optionOne: {
+    optionOneText: {
       votes: ['sarahedo'],
       text: 'have horrible short term memory',
     },
-    optionTwo: {
+    optionTwoText: {
       votes: [],
       text: 'have horrible long term memory'
     }
@@ -56,11 +56,11 @@ class QuestionSummary extends Component {
           </h4>
 
           <p>
-            {question.optionOne.text}
+            {question.optionOneText.text}
           </p>
 
           <p>
-            {question.optionTwo.text}
+            {question.optionTwoText.text}
           </p>
 
           <button

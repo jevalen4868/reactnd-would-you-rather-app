@@ -8,10 +8,10 @@ let users = {
     name: 'Sarah Edo',
     avatarURL: sarahedo,
     answers: {
-      "8xf0y6ziyjabvozdd253nd": 'optionOne',
-      "6ni6ok3ym7mf1p33lnez": 'optionOne',
-      "am8ehyc8byjqgar0jgpub9": 'optionTwo',
-      "loxhs1bqm25b708cmbf3g": 'optionTwo'
+      "8xf0y6ziyjabvozdd253nd": 'optionOneText',
+      "6ni6ok3ym7mf1p33lnez": 'optionOneText',
+      "am8ehyc8byjqgar0jgpub9": 'optionTwoText',
+      "loxhs1bqm25b708cmbf3g": 'optionTwoText'
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
@@ -20,8 +20,8 @@ let users = {
     name: 'Tyler McGinnis',
     avatarURL: tyler,
     answers: {
-      "vthrdm985a262al8qx3do": 'optionOne',
-      "xj352vofupe1dqz9emx13r": 'optionTwo',
+      "vthrdm985a262al8qx3do": 'optionOneText',
+      "xj352vofupe1dqz9emx13r": 'optionTwoText',
     },
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
   },
@@ -30,9 +30,9 @@ let users = {
     name: 'John Doe',
     avatarURL: johndoe,
     answers: {
-      "xj352vofupe1dqz9emx13r": 'optionOne',
-      "vthrdm985a262al8qx3do": 'optionTwo',
-      "6ni6ok3ym7mf1p33lnez": 'optionOne'
+      "xj352vofupe1dqz9emx13r": 'optionOneText',
+      "vthrdm985a262al8qx3do": 'optionTwoText',
+      "6ni6ok3ym7mf1p33lnez": 'optionOneText'
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
   }
@@ -43,11 +43,11 @@ let questions = {
     id: '8xf0y6ziyjabvozdd253nd',
     author: 'sarahedo',
     timestamp: 1467166872634,
-    optionOne: {
+    optionOneText: {
       votes: ['sarahedo'],
       text: 'have horrible short term memory',
     },
-    optionTwo: {
+    optionTwoText: {
       votes: [],
       text: 'have horrible long term memory'
     }
@@ -56,11 +56,11 @@ let questions = {
     id: '6ni6ok3ym7mf1p33lnez',
     author: 'johndoe',
     timestamp: 1468479767190,
-    optionOne: {
+    optionOneText: {
       votes: [],
       text: 'become a superhero',
     },
-    optionTwo: {
+    optionTwoText: {
       votes: ['johndoe', 'sarahedo'],
       text: 'become a supervillian'
     }
@@ -69,11 +69,11 @@ let questions = {
     id: 'am8ehyc8byjqgar0jgpub9',
     author: 'sarahedo',
     timestamp: 1488579767190,
-    optionOne: {
+    optionOneText: {
       votes: [],
       text: 'be telekinetic',
     },
-    optionTwo: {
+    optionTwoText: {
       votes: ['sarahedo'],
       text: 'be telepathic'
     }
@@ -82,11 +82,11 @@ let questions = {
     id: 'loxhs1bqm25b708cmbf3g',
     author: 'tylermcginnis',
     timestamp: 1482579767190,
-    optionOne: {
+    optionOneText: {
       votes: [],
       text: 'be a front-end developer',
     },
-    optionTwo: {
+    optionTwoText: {
       votes: ['sarahedo'],
       text: 'be a back-end developer'
     }
@@ -95,11 +95,11 @@ let questions = {
     id: 'vthrdm985a262al8qx3do',
     author: 'tylermcginnis',
     timestamp: 1489579767190,
-    optionOne: {
+    optionOneText: {
       votes: ['tylermcginnis'],
       text: 'find $50 yourself',
     },
-    optionTwo: {
+    optionTwoText: {
       votes: ['johndoe'],
       text: 'have your best friend find $500'
     }
@@ -108,11 +108,11 @@ let questions = {
     id: 'xj352vofupe1dqz9emx13r',
     author: 'johndoe',
     timestamp: 1493579767190,
-    optionOne: {
+    optionOneText: {
       votes: ['johndoe'],
       text: 'write JavaScript',
     },
-    optionTwo: {
+    optionTwoText: {
       votes: ['tylermcginnis'],
       text: 'write Swift'
     }
@@ -140,11 +140,11 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
     id: generateUID(),
     timestamp: Date.now(),
     author,
-    optionOne: {
+    optionOneText: {
       votes: [],
       text: optionOneText,
     },
-    optionTwo: {
+    optionTwoText: {
       votes: [],
       text: optionTwoText,
     }

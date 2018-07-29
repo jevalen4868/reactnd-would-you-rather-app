@@ -9,10 +9,10 @@ class QuestionPage extends Component {
     return (
       <Fragment>
         {
-          question.optionOne.votes.includes(authedUser)
-          || question.optionTwo.votes.includes(authedUser)
+          question.optionOneText.votes.includes(authedUser)
+          || question.optionTwoText.votes.includes(authedUser)
             ? <QuestionDetail id={question.id}/>
-            : <Question id={question.id}/>
+            : <Question qid={question.id}/>
         }
       </Fragment>
     )
