@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleSaveQuestion } from "../actions/questions";
-import { Redirect } from "react-router-dom";
 
 /*
 Controlled component.
@@ -34,7 +33,7 @@ class NewQuestion extends Component {
   }
 
   render() {
-    const { optionOneText, optionTwoText, redirectHome } = this.state
+    const { optionOneText, optionTwoText } = this.state
     return (
       <Fragment>
         <h3 className='center'>New Question</h3>

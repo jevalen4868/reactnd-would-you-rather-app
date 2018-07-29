@@ -1,23 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { saveUserQuestionAnswer } from "../actions/shared";
-import { Redirect } from "react-router-dom";
-
-/*
- "8xf0y6ziyjabvozdd253nd": {
-    id: '8xf0y6ziyjabvozdd253nd',
-    author: 'sarahedo',
-    timestamp: 1467166872634,
-    optionOneText: {
-      votes: ['sarahedo'],
-      text: 'have horrible short term memory',
-    },
-    optionTwoText: {
-      votes: [],
-      text: 'have horrible long term memory'
-    }
-  },
- */
 
 /*
 Controlled component, to manage the radio button selected.

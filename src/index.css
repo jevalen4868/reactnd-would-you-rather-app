@@ -23,7 +23,7 @@ form {
   text-transform: uppercase;
   margin: 5px auto;
   padding: 10px;
-  border: 1px solid rgba(0,0,0,.29);
+  border: 1px solid rgba(0, 0, 0, .29);
   font-size: 12px;
   width: 250px;
 }
@@ -71,6 +71,17 @@ li {
 }
 
 .dashboard {
+  width: 100%;
+  max-width: 590px;
+  padding: 0px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 5px;
+}
+
+.leaderboard {
   width: 100%;
   max-width: 590px;
   padding: 0px 10px 10px 10px;

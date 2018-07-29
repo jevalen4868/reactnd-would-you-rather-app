@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   render() {
-    const { authenticated, authedUser } = this.props
+    const { authenticated } = this.props
 
     return (
       <Router>
@@ -50,7 +50,6 @@ class App extends Component {
 
 const mapStateToProps = ({ authedUser, users, questions }) => ({
   authenticated: authedUser !== null,
-  authedUser,
   users,
   questions
 })
