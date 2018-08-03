@@ -30,7 +30,7 @@ class App extends Component {
           <div className="container">
             {!authenticated
               ? // login
-              <Login/>
+                <Route component={Login}/>
               :
               <div>
                 <Nav/>

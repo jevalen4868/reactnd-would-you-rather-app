@@ -1,7 +1,7 @@
-import { _getQuestions as getQuestions, _saveQuestionAnswer } from "../utils/_DATA";
+import { _getQuestions as getQuestions, _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
 import { hideLoading, showLoading } from "react-redux-loading";
 import { setAuthedUser } from "./authedUser";
-import { receiveQuestions, saveQuestionVote } from "./questions";
+import { receiveQuestions, saveQuestion, saveQuestionVote } from "./questions";
 import { saveUserAnswer } from "./users";
 
 
@@ -24,6 +24,23 @@ export const saveUserQuestionAnswer = (info) => {
       .then(() => {
         dispatch(saveUserAnswer(info))
         dispatch(saveQuestionVote(info))
+        dispatch(hideLoading())
+      })
+  }
+}
+
+export const handleSaveQuestion = (optionOneText, optionTwoText) => {
+  return (dispatch, getState) => {
+    const { authedUser } = getState()
+    dispatch(showLoading())
+
+    return _saveQuestion({
+      optionOneText,
+      optionTwoText,
+      author: authedUser
+    })
+      .then((question) => {
+        dispatch(saveQuestion(question))
         dispatch(hideLoading())
       })
   }

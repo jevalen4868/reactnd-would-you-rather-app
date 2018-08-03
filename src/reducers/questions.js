@@ -1,6 +1,9 @@
 import { RECEIVE_QUESTIONS, SAVE_QUESTION, SAVE_QUESTION_VOTE } from "../actions/questions";
 
 export default function questions(state = {}, action) {
+  // Used in multiple reducers.
+  const { qid } = action
+
   switch (action.type) {
     case RECEIVE_QUESTIONS:
       return {
@@ -14,7 +17,7 @@ export default function questions(state = {}, action) {
         [question.id]: question
       }
     case SAVE_QUESTION_VOTE:
-      const { authedUser, qid, answer } = action
+      const { authedUser, answer } = action
       return {
         ...state,
         [qid]: {

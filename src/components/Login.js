@@ -1,8 +1,14 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from "../actions/shared";
+import { handleAddUser } from "../actions/users";
+import NewUser from "./NewUser";
 
 class Login extends Component {
+
+  state = {
+    'createNewUser': false
+  }
 
   handleChange = (e) => {
     e.preventDefault()
@@ -16,15 +22,33 @@ class Login extends Component {
     }
   }
 
+  toggleCreateNewUser = (e = null) => {
+    e && e.preventDefault()
+    this.setState((prevState) => ({
+      'createNewUser': !prevState['createNewUser']
+    }))
+  }
+
+  onCreateNewUserSubmit = (user) => {
+    const { dispatch } = this.props
+    this.toggleCreateNewUser()
+    dispatch(handleAddUser(user))
+  }
+
   render() {
     const { userIds, loading } = this.props
+    const { createNewUser } = this.state
     return (
       <Fragment>
         {
           !loading &&
-          <div className='center'>
+          <div className='login'>
+            <h1>WYR</h1>
             <h3>Login, s'il vous plait.</h3>
-            <select onChange={this.handleChange}>
+            <select
+              className='login-select'
+              onChange={this.handleChange}
+              disabled={createNewUser === true}>
               <option value=''/>
               {
                 userIds.map((userId) => (
@@ -32,6 +56,20 @@ class Login extends Component {
                 ))
               }
             </select>
+            <div className='create-new-user'>
+              <button
+                className='btn'
+                onClick={this.toggleCreateNewUser}>
+                create new user
+              </button>
+            </div>
+            {
+              createNewUser &&
+              <NewUser
+                handleCreateNewUserSubmit={this.onCreateNewUserSubmit}
+              />
+
+            }
           </div>
         }
       </Fragment>
