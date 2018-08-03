@@ -1,20 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-/*
-johndoe: {
-    id: 'johndoe',
-    name: 'John Doe',
-    avatarURL: 'https://tylermcginnis.com/would-you-rather/dan.jpg',
-    answers: {
-      "xj352vofupe1dqz9emx13r": 'optionOneText',
-      "vthrdm985a262al8qx3do": 'optionTwoText',
-      "6ni6ok3ym7mf1p33lnez": 'optionOneText'
-    },
-    questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
-  }
- */
-
 class User extends Component {
   render() {
     const { user } = this.props
@@ -32,8 +18,8 @@ class User extends Component {
         <div className='user-img'>
           <img
             src={avatarURL}
-            alt={`Avatar of ${name}`}
             className='avatar'
+            alt=''
           />
         </div>
         <div className='user-stats'>

@@ -40,8 +40,8 @@ class Question extends Component {
 
           <img
             src={askedByUser.avatarURL}
-            alt={`Avatar of ${askedByUser.name}`}
             className='avatar'
+            alt=''
           />
         </div>
 

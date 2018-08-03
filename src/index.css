@@ -68,6 +68,11 @@ li {
   width: 100px;
   border-radius: 25px;
   margin: 0 auto;
+  background-image: url('./icons/person.svg');
+  background-color: white;
+  background-size: 100px 100px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .login {
@@ -88,16 +93,19 @@ li {
   height: 30px;
 }
 
+.create-new-user-form {
+  padding: 10px;
+}
 .create-user-avatar-input {
   margin: 0 auto;
   width: 60px;
   height: 60px;
-  background-color: white;
-  background-image: url('./icons/person.svg');
-  background-size: 32px 32px;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 50%;
+  background: white url('./icons/person.svg') no-repeat center;
+  cursor: pointer;
+}
+
+.create-user-avatar-input:hover {
+  background-color: #ffff99;
 }
 
 .create-user-details input {
