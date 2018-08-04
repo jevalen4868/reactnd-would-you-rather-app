@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from "react-router-dom";
 
 class User extends Component {
   render() {
@@ -9,18 +10,20 @@ class User extends Component {
       return <p>This user does not exist!</p>
     }
 
-    const { name, avatarURL, answers, questions } = user
+    const { id, name, avatarURL, answers, questions } = user
     const answered = Object.keys(answers).length
     const asked = questions.length
 
     return (
       <div className='user'>
         <div className='user-img'>
-          <img
-            src={avatarURL}
-            className='avatar'
-            alt=''
-          />
+          <Link to={`/user/${id}`}>
+            <img
+              src={avatarURL}
+              className='avatar'
+              alt=''
+            />
+          </Link>
         </div>
         <div className='user-stats'>
           <h4>{name}</h4>
