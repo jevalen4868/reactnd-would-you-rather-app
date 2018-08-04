@@ -4,17 +4,32 @@ import User from "./User";
 
 class UserPage extends Component {
   render() {
-    const { authedUser } = this.props
+    const { userId, name, shouldRender } = this.props
     return (
       <Fragment>
-        <h3 className='center'>You</h3>
-        <User id={authedUser}/>
+        {shouldRender &&
+        <div>
+          <h3 className='center'>{name}</h3>
+          <User id={userId}/>
+        </div>
+        }
       </Fragment>
     )
   }
 }
 
-const mapStateToProps = ({ authedUser }) => ({
-  authedUser,
-})
+const mapStateToProps = ({ authedUser, users }, { match }) => {
+  // In case the user clicked on themselves.
+  const shouldRender = authedUser !== match.params.userId
+  // Otherwise
+  const userId = match.params.userId || authedUser
+  // Double check for user label.
+  const isCurrentUser = authedUser === userId
+
+  return {
+    name: isCurrentUser ? 'You' : users[userId].name,
+    userId,
+    shouldRender
+  }
+}
 export default connect(mapStateToProps)(UserPage)

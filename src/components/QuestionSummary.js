@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from "react-router-dom";
+import { UserInfo } from "./UserInfo";
 
 /*
  "8xf0y6ziyjabvozdd253nd": {
@@ -36,19 +37,14 @@ class QuestionSummary extends Component {
     }
     return (
       <div className='question'>
-        <div className='question-user-info'>
-          <h4>
-            {question.author === authedUser
-              ? 'You ask'
-              : `${askedByUser.name} asks`}
-          </h4>
 
-          <img
-            src={askedByUser.avatarURL}
-            className='avatar'
-            alt=''
-          />
-        </div>
+        <UserInfo
+          userId={askedByUser.id}
+          userLabel={question.author === authedUser
+            ? 'You ask'
+            : `${askedByUser.name} asks`}
+          avatarURL={askedByUser.avatarURL}
+        />
 
         <div className='question-info'>
           <h4>

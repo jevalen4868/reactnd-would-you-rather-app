@@ -2,7 +2,7 @@ import { _getQuestions as getQuestions, _saveQuestion, _saveQuestionAnswer } fro
 import { hideLoading, showLoading } from "react-redux-loading";
 import { setAuthedUser } from "./authedUser";
 import { receiveQuestions, saveQuestion, saveQuestionVote } from "./questions";
-import { saveUserAnswer } from "./users";
+import { saveUserAnswer, saveUserQuestion } from "./users";
 
 
 export function handleInitialData(id) {
@@ -41,6 +41,7 @@ export const handleSaveQuestion = (optionOneText, optionTwoText) => {
     })
       .then((question) => {
         dispatch(saveQuestion(question))
+        dispatch(saveUserQuestion({ authedUser, qId: question.id }))
         dispatch(hideLoading())
       })
   }

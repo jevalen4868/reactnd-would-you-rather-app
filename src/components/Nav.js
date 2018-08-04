@@ -5,7 +5,7 @@ import { setAuthedUser } from "../actions/authedUser";
 
 class Nav extends Component {
   render() {
-    const { dispatch, history, username } = this.props
+    const { dispatch, history, username, authedUser } = this.props
     return (
       <nav className='nav'>
         <ul>
@@ -25,7 +25,7 @@ class Nav extends Component {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/user' activeClassName='active'>
+            <NavLink to={`/user/${authedUser}`} activeClassName='active'>
               Bonjour {username}
             </NavLink>
           </li>

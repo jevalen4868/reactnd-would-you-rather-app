@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { saveUserQuestionAnswer } from "../actions/shared";
+import { UserInfo } from "./UserInfo";
 
 /*
 Controlled component, to manage the radio button selected.
@@ -32,18 +33,14 @@ class Question extends Component {
     const { question, authedUser, askedByUser } = this.props
     return (
       <div className='question'>
-        <div className='question-user-info'>
-          <h3>
-            {question.author === authedUser
-              ? 'You ask'
-              : `${askedByUser.name} asks`}</h3>
 
-          <img
-            src={askedByUser.avatarURL}
-            className='avatar'
-            alt=''
-          />
-        </div>
+        <UserInfo
+          userId={askedByUser.id}
+          userLabel={question.author === authedUser
+            ? 'You ask'
+            : `${askedByUser.name} asks`}
+          avatarURL={askedByUser.avatarURL}
+        />
 
         <div className='question-info'>
           <h4 className='question-text'>

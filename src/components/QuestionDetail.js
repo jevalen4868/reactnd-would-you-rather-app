@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { UserInfo } from "./UserInfo";
 
 /*
 Controlled component, to manage the radio button selected.
@@ -19,18 +20,14 @@ class QuestionDetail extends Component {
 
     return (
       <div className='question'>
-        <div className='question-user-info'>
-          <h4>
-            {question.author === authedUser
-              ? 'You ask'
-              : `${askedByUser.name} asks`}</h4>
 
-          <img
-            src={askedByUser.avatarURL}
-            className='avatar'
-            alt=''
-          />
-        </div>
+        <UserInfo
+          userId={askedByUser.id}
+          userLabel={question.author === authedUser
+            ? 'You ask'
+            : `${askedByUser.name} asks`}
+          avatarURL={askedByUser.avatarURL}
+        />
 
         <div className='question-info'>
           <h4>
