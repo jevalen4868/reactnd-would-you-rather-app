@@ -12,6 +12,7 @@ import Leaderboard from "./Leaderboard";
 import NewQuestion from "./NewQuestion";
 import QuestionPage from "./QuestionPage";
 import UserPage from "./UserPage";
+import { NotFound } from "./NotFound";
 
 class App extends Component {
 
@@ -40,12 +41,13 @@ class App extends Component {
                 <Route path='/leaderboard' component={Leaderboard}/>
                 <Route path='/user/' component={UserPage}/>
                 <Route path='/user/:userId' component={UserPage}/>
+                <Route path='/404' component={NotFound} status={404} />
               </div>
             }
           </div>
         </Fragment>
       </Router>
-    );
+    )
   }
 }
 

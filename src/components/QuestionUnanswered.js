@@ -6,7 +6,7 @@ import { UserInfo } from "./UserInfo";
 /*
 Controlled component, to manage the radio button selected.
  */
-class Question extends Component {
+class QuestionUnanswered extends Component {
 
   state = {
     answer: ''
@@ -88,4 +88,4 @@ const mapStateToProps = ({ authedUser, users, questions }, { qid }) => {
   }
 }
 
-export default connect(mapStateToProps)(Question)
+export default connect(mapStateToProps)(QuestionUnanswered)

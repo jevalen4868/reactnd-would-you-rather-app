@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import Question from "./Question";
-import QuestionDetail from "./QuestionDetail";
+import QuestionUnanswered from "./QuestionUnanswered";
+import QuestionAnswered from "./QuestionAnswered";
+import { Redirect } from "react-router-dom";
 
 class QuestionPage extends Component {
   render() {
@@ -9,10 +10,14 @@ class QuestionPage extends Component {
     return (
       <Fragment>
         {
-          question.optionOneText.votes.includes(authedUser)
-          || question.optionTwoText.votes.includes(authedUser)
-            ? <QuestionDetail id={question.id}/>
-            : <Question qid={question.id}/>
+          question === undefined
+            ?
+            <Redirect to='/404' />
+            :
+            question.optionOneText.votes.includes(authedUser)
+            || question.optionTwoText.votes.includes(authedUser)
+              ? <QuestionAnswered id={question.id}/>
+              : <QuestionUnanswered qid={question.id}/>
         }
       </Fragment>
     )

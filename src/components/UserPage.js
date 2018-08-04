@@ -1,17 +1,24 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import User from "./User";
+import { Redirect } from "react-router-dom";
 
 class UserPage extends Component {
   render() {
     const { userId, name, shouldRender } = this.props
     return (
       <Fragment>
-        {shouldRender &&
-        <div>
-          <h3 className='center'>{name}</h3>
-          <User id={userId}/>
-        </div>
+
+        {
+          name === undefined
+            ?
+            <Redirect to='/404'/>
+            :
+            shouldRender &&
+            <div>
+              <h3 className='center'>{name}</h3>
+              <User id={userId}/>
+            </div>
         }
       </Fragment>
     )
@@ -27,7 +34,9 @@ const mapStateToProps = ({ authedUser, users }, { match }) => {
   const isCurrentUser = authedUser === userId
 
   return {
-    name: isCurrentUser ? 'You' : users[userId].name,
+    name: isCurrentUser
+      ? 'You'
+      : users[userId] && users[userId].name,
     userId,
     shouldRender
   }
