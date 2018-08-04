@@ -9,7 +9,7 @@ import Login from './Login'
 import Dashboard from './Dashboard'
 import LoadingBar from 'react-redux-loading'
 import Leaderboard from "./Leaderboard";
-import NewQuestion from "./NewQuestion";
+import AddQuestion from "./AddQuestion";
 import QuestionPage from "./QuestionPage";
 import UserPage from "./UserPage";
 import { NotFound } from "./NotFound";
@@ -37,7 +37,7 @@ class App extends Component {
                 <Nav/>
                 <Route exact path='/' component={Dashboard}/>
                 <Route path='/question/:id' component={QuestionPage}/>
-                <Route path='/new' component={NewQuestion}/>
+                <Route path='/add' component={AddQuestion}/>
                 <Route path='/leaderboard' component={Leaderboard}/>
                 <Route path='/user/' component={UserPage}/>
                 <Route path='/user/:userId' component={UserPage}/>

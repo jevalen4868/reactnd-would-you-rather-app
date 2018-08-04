@@ -6,19 +6,17 @@ import { Redirect } from "react-router-dom";
 class UserPage extends Component {
   render() {
     const { userId, name, shouldRender } = this.props
+    if (name === undefined) {
+      return <Redirect to='/404'/>
+    }
     return (
       <Fragment>
-
         {
-          name === undefined
-            ?
-            <Redirect to='/404'/>
-            :
-            shouldRender &&
-            <div>
-              <h3 className='center'>{name}</h3>
-              <User id={userId}/>
-            </div>
+          shouldRender &&
+          <div>
+            <h3 className='center'>{name}</h3>
+            <User id={userId}/>
+          </div>
         }
       </Fragment>
     )

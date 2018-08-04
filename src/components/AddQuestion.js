@@ -1,15 +1,17 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleSaveQuestion } from "../actions/shared";
+import { Redirect } from "react-router-dom";
 
 /*
 Controlled component.
  */
-class NewQuestion extends Component {
+class AddQuestion extends Component {
 
   state = {
     optionOneText: '',
     optionTwoText: '',
+    toHome: false,
   }
 
   handleChange = (e) => {
@@ -29,11 +31,15 @@ class NewQuestion extends Component {
     this.setState(() => ({
       optionOneText: '',
       optionTwoText: '',
+      toHome: true,
     }))
   }
 
   render() {
-    const { optionOneText, optionTwoText } = this.state
+    const { optionOneText, optionTwoText, toHome } = this.state
+    if (toHome) {
+      return <Redirect to='/'/>
+    }
     return (
       <Fragment>
         <h3 className='center'>New Question</h3>
@@ -73,4 +79,4 @@ class NewQuestion extends Component {
   }
 }
 
-export default connect()(NewQuestion)
+export default connect()(AddQuestion)
