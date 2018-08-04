@@ -47,6 +47,7 @@ class NewQuestion extends Component {
               onChange={this.handleChange}
               className='option'
               maxLength={280}
+              autoComplete='off'
             />
             <p>OR</p>
             <input
@@ -56,6 +57,7 @@ class NewQuestion extends Component {
               onChange={this.handleChange}
               className='option'
               maxLength={280}
+              autoComplete='off'
             />
             <button
               className='btn'

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ImageInput from "./ImageInput"
+import { connect } from 'react-redux'
 import serializeForm from 'form-serialize';
 
 class NewUser extends Component {
@@ -18,9 +19,8 @@ class NewUser extends Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-    this.props.handleCreateNewUserSubmit(
-      serializeForm(e.target, { hash: true })
-    )
+    const formValues = serializeForm(e.target, { hash: true })
+    this.props.handleCreateNewUserSubmit(formValues)
   }
 
   render() {
@@ -43,6 +43,7 @@ class NewUser extends Component {
             placeholder='Name'
             value={name}
             onChange={this.handleChange}
+            autoComplete='off'
           />
           <input
             type='text'
@@ -50,6 +51,7 @@ class NewUser extends Component {
             placeholder='Id'
             value={id}
             onChange={this.handleChange}
+            autoComplete='off'
           />
           <button
             className='btn'
@@ -66,4 +68,4 @@ class NewUser extends Component {
   }
 }
 
-export default NewUser
+export default connect()(NewUser)
